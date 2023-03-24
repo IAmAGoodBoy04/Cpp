@@ -6,8 +6,7 @@ void solve () {
     long long int x;
     cin>>x;
     x--;
-    long long int t = sqrt(x);
-    long long int b = ceil(t);
+    long long int t = sqrtl(x);
     cout<<t<<endl;
   
 }

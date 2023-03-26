@@ -23,19 +23,20 @@ int main(){
         cin>>arr[i];
     }
     insertionsort(arr,n);
-    int count=0,j=0;
-    for(int i=0;i<n;i++){
-        if(arr[i]==arr[i+1]){
+    int count=0,flag=arr[0],x=0,j=0;
+    while(x<n){
+        while(arr[x]==flag){
             count++;
+            x++;
         }
-        else{
-            freq[j]=count+1;
-            j++;
-            count=0;
-        }
+        freq[j]=count;
+        flag=arr[x];
+        j++;
+        count=0;
     }
-    if(j>0){
-        for(int i=0;i<j+1;i++){
+    if(j>1){
+        insertionsort(freq,j);
+        for(int i=0;i<j-1;i++){
             if(freq[i]==freq[i+1]){
                 yes=0;
                 break;

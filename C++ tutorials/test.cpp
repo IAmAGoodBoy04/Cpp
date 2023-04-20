@@ -1,8 +1,11 @@
 #include<iostream>
+#include<iomanip>
+#include<cstdio>
+
 using namespace std;
 
 int main(){
-    cout<<"Hello World";
-
+    long long a=200000000000000;
+    cout<<a/2+1<<endl;
 return 0;
 }

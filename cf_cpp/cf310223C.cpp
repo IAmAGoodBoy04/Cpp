@@ -2,25 +2,6 @@
 
 using namespace std;
 
-void removeDuplicates(int arr[], int n)
-{
- 
-    
- 
-    // Initialise a set
-    // to store the array values
-    set<int> s;
- 
-    // Insert the array elements
-    // into the set
-    for (int i = 0; i < n; i++) {
- 
-        // insert into set
-        s.insert(arr[i]);
-    }
- 
-    set<int>::iterator it;
-}
 
 void solve(int *arr, int n, int c, int d){
     sort(arr,arr+n);
@@ -36,19 +17,27 @@ void solve(int *arr, int n, int c, int d){
     std::copy (s.begin (), s.end (), std::back_inserter (v));
     int newlen=v.size();
     identical=n-newlen;
+    ans=ans+c*identical;
     for(int i=0;i<newlen;i++){
-        if(i==0){prev=0;}
-        else{prev=v[i-1];}
-        if(d*(v[i]-prev-1)>c*(newlen-i)){
-            ans=ans+c*newlen;
+        if(i==0){
+            if(d*(v[i]-1)>(c*(newlen)+d)){
+                ans=ans+c*(newlen)+d;
+                cout<<ans<<endl;
+                return;
+            }
+            else{
+                ans+=d*(v[i]-1);
+            }
+        }
+        else if(d*(v[i]-v[i-1]-1)>c*(newlen-i)){
+            ans=ans+c*(newlen-i);
             cout<<ans<<endl;
             return;
         }
         else{
-             ans=ans+d*(v[0]-1);
+             ans=ans+d*(v[i]-v[i-1]-1);
         }
     }
-    ans=ans+c*identical;
     cout<<ans<<endl;
 }
 

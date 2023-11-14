@@ -30,10 +30,16 @@ int main(){
         for(int i=0;i<n-1;i++){
             diff[i]=abs(diff[i]);
         }
-        map<int,int> arrmap;
+        map<int,int> arrmap,diffmap;
+
         for(int i=0;i<n;i++){
-            arr
+            arrmap[arr[i]]++;
         }
+        for(int i=0;i<n-1;i++){
+            diffmap[diff[i]]++;
+        }
+        map<int,int>:: iterator it=arrmap.begin();
+    
     }
 
 return 0;

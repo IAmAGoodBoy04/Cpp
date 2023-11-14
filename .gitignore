@@ -1,1 +1,5 @@
 cf_cpp/.vscode/c_cpp_properties.json
+cf_cpp
+.vscode/settings.json
+.vscode/tasks.json
+.gitignore
